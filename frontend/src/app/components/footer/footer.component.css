@@ -1,0 +1,148 @@
+.footer {
+    display: flex;
+    width: 100%;
+    background-color: #0c486c;
+    font-family: 'Poppins', sans-serif;
+    max-height: fit-content;
+    min-height: 25dvh;
+    padding-bottom: 0.5dvh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: clamp(320px, 90%, 1400px);
+}
+
+.sides {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.left-side,
+.right-side {
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.logo-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.texto-container {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 5px;
+}
+
+.titulo-principal {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.subtitulo {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #ffffff;
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #ffffff;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    justify-content: center;
+
+    h2 {
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .footer {
+        min-height: fit-content;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    .copyright h2 {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sides {
+        flex-direction: row;
+        align-items: center;
+        min-height: fit-content;
+    }
+
+    .left-side {
+        text-align: center;
+        padding-bottom: 0px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    .copyright h2 {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .footer {
+        min-height: fit-content;
+    }
+
+    .right-side {
+        text-align: center;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10%;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .logo-desc {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-left: 12%;
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+        margin: none;
+    }
+
+    .copyright h2 {
+        font-size: 0.7rem;
+        margin: none;
+    }
+}

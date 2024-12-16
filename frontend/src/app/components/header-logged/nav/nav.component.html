@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <app-logo-nav class="navbar-logo"></app-logo-nav>
+
+        <div class="navbar-links">
+            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+        </div>
+
+        <div class="search-input-container">
+            <app-buscador (searchTerm)="handleSearch($event)"></app-buscador>
+        </div>
+
+        <button class="navbar-toggler" (click)="togglePopup()" [class.open]="isPopupOpen" type="button" aria-label="Toggle navigation">
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+            <span class="navbar-toggler-line"></span>
+        </button>
+
+        <div class="navbar-popup" *ngIf="isPopupOpen && isMobile">
+            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+        </div>
+    </div>
+</nav>

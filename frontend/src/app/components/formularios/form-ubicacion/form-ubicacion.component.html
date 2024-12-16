@@ -1,0 +1,52 @@
+<div class="form-ubicacion-container">
+  <h2>Formulario de Ubicación</h2>
+
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="ubicacion.nombre">
+  </div>
+
+  <div class="form-group">
+    <label for="existencia">Existencia:</label>
+    <select id="existencia" [(ngModel)]="ubicacion.existencia" name="existencia">
+      <option *ngFor="let existencia of existencias" [value]="existencia">
+        {{ existencia.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" (click)="volver()">Volver</button>
+    <button (click)="crear()">Crear</button>
+    <button (click)="editar()">Editar</button>
+    <button (click)="eliminar()">Eliminar</button>
+  </div>
+
+  <div class="lista-ubicaciones-container">
+    <h2>Lista de Ubicaciones</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Ubicación</th>
+            <th>Nombre</th>
+            <th>¿Existe?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ubicacion of paginadoUbicaciones" (click)="seleccionarUbicacion(ubicacion)">
+            <td>{{ ubicacion.id_ubicacion }}</td>
+            <td>{{ ubicacion.nombre }}</td>
+            <td>{{ ubicacion.existencia }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 0">Anterior</button>
+    <span>Página {{ currentPage + 1 }} de {{ Math.ceil(ubicaciones.length / itemsPerPage) }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= (ubicaciones.length / itemsPerPage) - 1">Siguiente</button>
+  </div>
+</div>

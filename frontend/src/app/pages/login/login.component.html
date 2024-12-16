@@ -1,0 +1,34 @@
+<div class="login">
+    <div class="container">
+        <div class="container-logo">
+            <div class="flex">
+                <div class="barra"></div>
+                <div class="circulo"></div>
+                <div class="barra"></div>
+            </div>
+        </div>
+        <h4>Ingresar</h4>
+        <form class="form-container" (submit)="login()">
+            <div class="form">
+                <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="email" required />
+            </div>
+            <div class="form">
+                <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="password"
+                    required />
+            </div>
+            <div class="form remember-me">
+                <label>
+                    <input type="checkbox" id="rememberMe" name="rememberMe" />
+                    Recuérdame
+                </label>
+                <!-- <a href="#" class="forgot-password">Olvidé mi contraseña</a> -->
+            </div>
+            <div class="bton">
+                <button type="submit" class="btn-ingresar">Ingresar</button>
+            </div>
+        </form>
+        <div class="signup-link">
+            <a href="#" (click)="goToRegister(); $event.preventDefault();">¿No tienes cuenta aún? <b>Regístrate</b></a>
+        </div>
+    </div>
+</div>

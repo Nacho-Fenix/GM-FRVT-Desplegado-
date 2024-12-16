@@ -1,0 +1,67 @@
+<div class="form-edificio-container">
+  <h2>Formulario de Edificio</h2>
+
+  <form>
+    <div class="form-group">
+      <label for="id_edificio">ID</label>
+      <input type="number" id="id_edificio" [(ngModel)]="edificio.id_edificio" name="id_edificio" />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="edificio.nombre" name="nombre" maxlength="100" />
+    </div>
+
+    <div class="form-group">
+      <label for="calle">Calle</label>
+      <input type="text" id="calle" [(ngModel)]="edificio.calle" name="calle" maxlength="255" />
+    </div>
+
+    <div class="form-group">
+      <label for="existencia">Existencia</label>
+      <select id="existencia" [(ngModel)]="edificio.existencia" name="existencia">
+        <option *ngFor="let existencia of existencias" [value]="existencia.nombre">
+          {{ existencia.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="volver()">Volver</button>
+      <button type="button" (click)="crear()">Crear</button>
+      <button type="button" (click)="editar()">Editar</button>
+      <button type="button" (click)="eliminar()">Eliminar</button>
+      <button type="button" (click)="limpiarFormulario()">Limpiar</button>
+    </div>
+  </form>
+
+  <div class="lista-edificios-container">
+    <h2>Lista de Edificios</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Edificio</th>
+            <th>Nombre</th>
+            <th>Calle</th>
+            <th>¿Existe?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let edificio of paginadoEdificios" (click)="seleccionarEdificio(edificio)">
+            <td>{{ edificio.id_edificio }}</td>
+            <td>{{ edificio.nombre }}</td>
+            <td>{{ edificio.calle }}</td>
+            <td>{{ edificio.existencia }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 0">Anterior</button>
+    <span>Página {{ currentPage + 1 }} de {{ Math.ceil(edificios.length / itemsPerPage) }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= (edificios.length / itemsPerPage) - 1">Siguiente</button>
+  </div>
+</div>
